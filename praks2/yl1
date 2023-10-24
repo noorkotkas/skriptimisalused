@@ -1,0 +1,5 @@
+#!/bin/bash
+# Väljastab kasutajle tervitust
+echo -n "Tere "
+echo -n `whoami`
+echo "!"
