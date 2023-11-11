@@ -1,5 +1,5 @@
 #!/bin/bash
-# Väljastab kasutajle tervitust
+# Väljastab kasutajale tervitust
 echo -n "Tere "
 echo -n `whoami`
 echo "!"
