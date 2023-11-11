@@ -1,0 +1,13 @@
+#!/bin/bash
+#see skript väljastab kuupäeva ja ajaga seotud info
+
+date=$(date +"%A, %B %d, %Y")
+time=$(date +"%H:%M")
+calendartext=$(date +"%B %Y calendar")
+calendar=$(cal | tail -n 7)
+
+echo "Today is $date"
+echo "Time is $time"
+echo "$calendartext"
+echo "$calendar"
+
