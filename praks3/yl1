@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Küsi kasutajalt eesnime
+echo "Sisesta oma eesnimi:"
+read eesnimi
+
+# Küsi kasutajalt perenime
+echo "Sisesta oma perenimi:"
+read perenimi
+
+# Koosta täisnimi
+taisnimi="$eesnimi $perenimi"
+
+# Tervita kasutajat
+echo "Tere tulemast! $taisnimi"
+
