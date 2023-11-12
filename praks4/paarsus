@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# Paarsuse kontroll
+#
+
+# Kontrollime, kas skriptile anti täpselt üks käsureaparameeter
+if [ $# -ne 1 ]; then
+    echo "Kasuta skripti järgmiselt: $0 <täisarv>"
+    exit 1
+fi
+
+# Võtame kasutaja sisestatud arvu esimese käsureaparameetrina
+arv=$1
+
+# Arvutame jäägi 2-ga jagamisel
+jaak=$(( $arv % 2 ))
+
+# Kontrollime, kas arv on paaris või paaritu
+if [ $jaak -eq 0 ]; then
+    echo "$arv on paaris"
+else
+    echo "$arv on paaritu"
+fi
+
