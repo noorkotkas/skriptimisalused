@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Küsime kasutajalt vanust
+echo -n "Sisesta oma vanus: "
+read vanus
+
+# Kontrollime, kas sisestatud väärtus on positiivne täisarv
+if [[ ! "$vanus" =~ ^[0-9]+$ ]]; then
+    echo "Vigane sisend! Palun sisesta positiivne täisarv."
+    exit 1
+fi
+
+# Väljastame vastavalt vanusele kirjelduse
+if [ $vanus -ge 0 ] && [ $vanus -le 11 ]; then
+    echo "Oled laps."
+elif [ $vanus -ge 12 ] && [ $vanus -le 18 ]; then
+    echo "Oled nooruk."
+elif [ $vanus -ge 19 ] && [ $vanus -le 63 ]; then
+    echo "Oled täiskasvanu."
+else
+    echo "Oled seenior."
+fi
+
