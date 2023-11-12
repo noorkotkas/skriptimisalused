@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Küsime kasutajalt ainepunktide arvu
+read -p "Sisestage ainepunktide arv: " ainepunktid
+
+# Küsime kasutajalt nädalate arvu
+read -p "Sisestage nädalate arv: " nadalad
+
+# Arvutame ühe nädala eeldatava ajakulu
+ajakulu=$(($ainepunktid * 26 / $nadalad))
+
+# Väljastame tulemuse ekraanile
+echo "Ühe nädala eeldatav ajakulu on: $ajakulu tundi"
+
