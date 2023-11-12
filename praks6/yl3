@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Küsi kasutajalt kuu number
+echo -n "Sisesta kuu number (1-12): "
+read kuu
+
+# Kontrolli, kas sisestatud väärtus on täisarv vahemikus 1-12
+if [[ ! "$kuu" =~ ^[1-9]|1[0-2]$ ]]; then
+    echo "Vigane sisend! Palun sisesta kuu number vahemikus 1-12."
+    exit 1
+fi
+
+# Määra kuu nimetus vastavalt sisestatud kuu numbrile
+case $kuu in
+    1)  kuu_nimetus="Jaanuar" ;;
+    2)  kuu_nimetus="Veebruar" ;;
+    3)  kuu_nimetus="Märts" ;;
+    4)  kuu_nimetus="Aprill" ;;
+    5)  kuu_nimetus="Mai" ;;
+    6)  kuu_nimetus="Juuni" ;;
+    7)  kuu_nimetus="Juuli" ;;
+    8)  kuu_nimetus="August" ;;
+    9)  kuu_nimetus="September" ;;
+    10) kuu_nimetus="Oktoober" ;;
+    11) kuu_nimetus="November" ;;
+    12) kuu_nimetus="Detsember" ;;
+esac
+
+# Väljasta kuu nimetus
+echo "Sisestatud kuu number $kuu vastab kuule $kuu_nimetus."
+
