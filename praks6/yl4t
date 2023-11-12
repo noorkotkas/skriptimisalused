@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Funktsioon algarvu kontrollimiseks
+function on_algarv() {
+    local number=$1
+    if [ "$number" -eq 2 ] || [ "$number" -eq 3 ]; then
+        return 0
+    elif [ "$number" -eq 1 ] || [ $((number % 2)) -eq 0 ]; then
+        return 1
+    else
+        local sqrt_val=$(echo "sqrt($number)" | bc)
+        for ((i = 3; i <= sqrt_val; i += 2)); do
+            if [ $((number % i)) -eq 0 ]; then
+                return 1
+            fi
+        done
+    fi
+    return 0
+}
+
+# Kontrolli 20 esimese täisarvu kohta, kas nad on algarvud
+echo "Algarvud 20 esimese täisarvu hulgas:"
+for ((arv = 1; arv <= 20; arv++)); do
+    on_algarv "$arv"
+    if [ $? -eq 0 ]; then
+        echo "$arv on algarv."
+    else
+        echo "$arv ei ole algarv."
+    fi
+done
+
