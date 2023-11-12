@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Küsime kasutajalt kuu numbrit
+echo -n "Sisesta kuu number (1-12): "
+read kuu
+
+# Kontrollime, kas sisestatud väärtus on positiivne täisarv
+if [[ ! "$kuu" =~ ^[0-9]+$ ]]; then
+    echo "Vigane sisend! Palun sisesta positiivne täisarv."
+    exit 1
+fi
+
+# Väljastame vastavalt kuu numbrile aastaaja
+case $kuu in
+    1 | 2 | 12)
+        echo "Talv"
+        ;;
+    3 | 4 | 5)
+        echo "Kevad"
+        ;;
+    6 | 7 | 8)
+        echo "Suvi"
+        ;;
+    9 | 10 | 11)
+        echo "Sügis"
+        ;;
+    *)
+        echo "Vigane kuu number! Palun sisesta number vahemikus 1-12."
+        exit 1
+        ;;
+esac
+
