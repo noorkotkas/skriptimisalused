@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Initsialiseerime summa muutuja
+summa=0
+
+# Loome tsükli, et liita paarisarvud kokku
+for (( i = 2; i <= 10; i+=2 )); do
+    # Lisame paarisarvu summale
+    summa=$((summa + i))
+done
+
+# Väljastame tulemuse
+echo "Arvude vahemikus 1 kuni 10 paarisarvude summa on: $summa"
+
