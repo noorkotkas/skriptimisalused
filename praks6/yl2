@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Küsi kasutajalt suvaline täisarv
+echo -n "Sisesta suvaline täisarv: "
+read arv
+
+# Kontrollime, kas sisestatud väärtus on täisarv
+if [[ ! "$arv" =~ ^-?[0-9]+$ ]]; then
+    echo "Vigane sisend! Palun sisesta suvaline täisarv."
+    exit 1
+fi
+
+# Initsialiseerime summa muutuja
+summa=0
+
+# Arvutame numbrite summat
+while [ "$arv" -ne 0 ]; do
+    digit=$((arv % 10))
+    summa=$((summa + digit))
+    arv=$((arv / 10))
+done
+
+# Väljastame tulemuse
+echo "Arvu $1 numbrite summa on $summa"
+
