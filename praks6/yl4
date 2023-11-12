@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Küsi kasutajalt arv
+echo -n "Sisesta arv: "
+read arv
+
+# Kontrolli, kas sisestatud väärtus on täisarv ja suurem kui 1
+if [[ ! "$arv" =~ ^[1-9][0-9]*$ ]]; then
+    echo "Vigane sisend! Palun sisesta positiivne täisarv suurem kui 1."
+    exit 1
+fi
+
+# Funktsioon algarvu kontrollimiseks
+function on_algarv() {
+    local number=$1
+    if [ "$number" -eq 2 ] || [ "$number" -eq 3 ]; then
+        return 0
+    elif [ "$number" -eq 1 ] || [ $((number % 2)) -eq 0 ]; then
+        return 1
+    else
+        local sqrt_val=$(echo "sqrt($number)" | bc)
+        for ((i = 3; i <= sqrt_val; i += 2)); do
+            if [ $((number % i)) -eq 0 ]; then
+                return 1
+            fi
+        done
+    fi
+    return 0
+}
+
+# Kutsu funktsiooni ja kontrolli tulemust
+on_algarv "$arv"
+if [ $? -eq 0 ]; then
+    echo "$arv on algarv."
+else
+    echo "$arv ei ole algarv."
+fi
+
