@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Küsime kasutajalt reisijate arvu
+read -p "Sisestage reisijate arv: " reisijate_arv
+
+# Küsime kasutajalt bussi kohtade arvu
+read -p "Sisestage bussi kohtade arv: " kohtade_arv
+
+# Arvutame täielikult täidetud busside arvu ja maha jäänud reisijate arvu
+taisbussid=$((reisijate_arv / kohtade_arv))
+mahajaanud=$((reisijate_arv % kohtade_arv))
+
+# Väljastame tulemuse ekraanile
+echo "Täielikult täidetud busse: $taisbussid"
+echo "Maha jäänud reisijaid: $mahajaanud"
