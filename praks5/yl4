@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Loeme süsteemi kellaaega
+tund=$(date +%H)
+
+# Väljastame vastavalt tunnile tervituse koos kasutaja nimega
+if [ $tund -ge 6 ] && [ $tund -lt 12 ]; then
+    echo "Tere hommikust, $USER!"
+elif [ $tund -ge 12 ] && [ $tund -lt 18 ]; then
+    echo "Tere päevast, $USER!"
+elif [ $tund -ge 18 ] && [ $tund -lt 22 ]; then
+    echo "Tere õhtust, $USER!"
+elif [ $tund -ge 22 ] || [ $tund -lt 6 ]; then
+    echo "Head ööd, $USER!"
+else
+    echo "Midagi läks valesti. Palun proovi uuesti."
+    exit 1
+fi
+
