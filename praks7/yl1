@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Määra ridade ja veergude arv
+ridu=5
+veerge=5
+
+# Välimine tsükkel, mis liigub ridade järgi
+for ((i=1; i<=ridu; i++)); do
+    # Sisemine tsükkel, mis liigub veergude järgi
+    for ((j=1; j<=veerge; j++)); do
+        # Väljasta tärn ilma reavaheta
+        echo -n "* "
+    done
+    # Liigu järgmisele reale
+    echo
+done
+
